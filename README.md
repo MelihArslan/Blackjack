@@ -1,3 +1,1 @@
-# SE3 Web Frameworks
-
-Solutions to assignments for the course Web Frameworks of semester-3 SE
+Test wijziging. Ik ga kijken of deze wijziging ook op de webspace wordt doorgoeverd
