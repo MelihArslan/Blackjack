@@ -1,0 +1,160 @@
+.navbar-background {
+  background-color: lavender;
+}
+
+.homebutton {
+  float: left;
+  background-color: lavender;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.home {
+  position: relative;
+  display: inline-block;
+  border-right-style: solid;
+  border-right-width: medium;
+  border-right-color: #f9f9f9;
+}
+
+.home:hover .homebutton {
+  background-color: blueviolet;
+}
+
+
+.dropbtn {
+  float: left;
+  background-color: lavender;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border-right-style: solid;
+  border-right-width: medium;
+  border-right-color: #f9f9f9;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: lavender}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: blueviolet;
+}
+
+
+.playbutton {
+  float: left;
+  background-color: lavender;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.play {
+  position: relative;
+  display: inline-block;
+  border-right-style: solid;
+  border-right-width: medium;
+  border-right-color: #f9f9f9;
+}
+
+.play:hover .playbutton {
+  background-color: blueviolet;
+}
+
+.myaccountbtn {
+  float: left;
+  background-color: lavender;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.myaccount {
+  position: relative;
+  display: inline-block;
+}
+
+.myaccount:hover .myaccountbtn {
+  background-color: blueviolet;
+}
+
+
+.signup .signup-right {
+  float: right;
+  background-color: lavender;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.signup {
+  position: relative;
+  display: inline-block;
+  border-right-style: solid;
+  border-right-width: medium;
+  border-right-color: #f9f9f9;
+}
+
+.signup:hover .signup-right {
+  background-color: blueviolet;
+}
+
+.signup-right {
+  position: relative;
+  display: inline-block;
+}
+
+.login .login-right {
+  float: right;
+  background-color: lavender;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.login:hover .login-right {
+  background-color: blueviolet;
+}
