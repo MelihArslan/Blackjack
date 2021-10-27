@@ -9,6 +9,11 @@ import { BodyComponent } from './body/body.component';
 import { CardsComponent } from './cards/cards.component';
 import { IconGridComponent } from './icon-grid/icon-grid.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {FormsModule} from "@angular/forms";
+import {UserService} from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -20,12 +25,16 @@ import { CarouselComponent } from './carousel/carousel.component';
     BodyComponent,
     CardsComponent,
     IconGridComponent,
-    CarouselComponent
+    CarouselComponent,
+    LoginComponent,
+    RegisterComponent
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
