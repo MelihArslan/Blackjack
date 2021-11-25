@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {FormsModule} from "@angular/forms";
 import {UserService} from "./services/user.service";
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {UserService} from "./services/user.service";
     IconGridComponent,
     CarouselComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TableComponent
   ],
     imports: [
         BrowserModule,
