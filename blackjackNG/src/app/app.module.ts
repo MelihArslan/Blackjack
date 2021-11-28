@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {FormsModule} from "@angular/forms";
 import {UserService} from "./services/user.service";
+import { TableComponent } from './table/table.component';
+import {GameService} from "./services/game.service";
 
 @NgModule({
   declarations: [
@@ -27,14 +29,15 @@ import {UserService} from "./services/user.service";
     IconGridComponent,
     CarouselComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TableComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule
     ],
-  providers: [UserService],
+  providers: [UserService, GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

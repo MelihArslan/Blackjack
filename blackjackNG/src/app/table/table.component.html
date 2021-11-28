@@ -1,0 +1,27 @@
+<div class="container text-white pb-2" id="gametable">
+  <div class="d-flex flex-column">
+    <div class="align-self-center m-3">
+      <h1>Blackjack</h1>
+    </div>
+    <div class="align-self-center">
+      <h1>Dealer {{ table.dealer.name}}</h1>
+      <p>Cards should be show here</p>
+    </div>
+    <div *ngFor="let player of table.players" class="align-self-center">
+      <h1>Player {{ player.name }}</h1>
+      <p>Cards should be show here</p>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-secondary m-1">Deal</button>
+    <button type="button" class="btn btn-secondary m-1">Hit</button>
+    <button type="button" class="btn btn-secondary m-1">Stay</button>
+    <button type="button" class="btn btn-secondary m-1">Split</button>
+    <button type="button" class="btn btn-secondary m-1">Surrender</button>
+  </div>
+
+</div>
+
+
+
