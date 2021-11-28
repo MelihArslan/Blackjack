@@ -3,6 +3,7 @@ package nl.meliharslan.ewa.blackjackSB.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "game_table")
@@ -15,7 +16,8 @@ public class GameTable implements Serializable {
     @OneToOne(cascade = {CascadeType.ALL})
     private Dealer dealer;
     private int totalPlayers;
-//    private List<Player> players;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<Player> players = new ArrayList<>();
 
 
 
@@ -29,12 +31,12 @@ public class GameTable implements Serializable {
         this.id = tableId;
     }
 
-//    public ArrayList<Player> getPlayers() {
-//        return players;
-//    }
-//    public void setPlayers(ArrayList<Player> players) {
-//        this.players = players;
-//    }
+    public List<Player> getPlayers() {
+        return players;
+    }
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
 
 
     public Dealer getDealer() {
