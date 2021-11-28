@@ -1,31 +1,35 @@
 package nl.meliharslan.ewa.blackjackSB.models;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Hand {
+@Entity
+@Table(name = "hand")
+public class Hand implements Serializable {
     // Declaring variable
-    private ArrayList<Card> cards;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false)
+    private Long id;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<Card> cards  = new ArrayList<>();
 
-    public Hand(ArrayList<Card> cards) {
-        this.cards = cards;
-    }
+    public Hand() {}
 
     // Getter and setter
-    public ArrayList<Card> getCards() {
+    public List<Card> getCards() {
         return cards;
     }
-    public void setCards(ArrayList<Card> cards) {
+    public void setCards(List<Card> cards) {
         this.cards = cards;
     }
 
-    public void addCard(Card card) {
-        // Add a card to the hand
+    public Long getId() {
+        return id;
     }
-    public int handValue() {
-        // return the value of the hand
-        return 0;
-    }
-    public void chooseAce() {
-        // Choosing whether the ace should be 1 or 10 and setting it in the hand
+    public void setId(Long id) {
+        this.id = id;
     }
 }
