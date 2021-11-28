@@ -12,7 +12,7 @@ export class GameService {
 
   //get table from backend
   public getTable(): Observable<Table> {
-    return this.http.get<Table>(`${this.apiServerUrl}/table`);
+    return this.http.get<Table>(`${this.apiServerUrl}/table/1`);
   }
 
   //post table

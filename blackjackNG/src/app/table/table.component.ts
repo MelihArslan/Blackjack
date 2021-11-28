@@ -17,6 +17,7 @@ export class TableComponent implements OnInit {
     this.gameService.getTable().subscribe(
       (response: Table) => {
         this.table = response;
+        console.log(JSON.stringify(response));
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
