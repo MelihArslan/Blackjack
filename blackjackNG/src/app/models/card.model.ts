@@ -1,4 +1,4 @@
 export class Card {
-  rank: string;
+  cardRank: string;
   suit: string;
 }

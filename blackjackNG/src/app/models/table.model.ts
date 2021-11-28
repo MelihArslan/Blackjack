@@ -1,9 +1,9 @@
 import {Player} from "./player.model";
 import {Dealer} from "./dealer.model";
 
-export class Table {
+export interface Table {
   tableId: number;
-  players: Array<Player>;
-  dealer: Dealer;
   totalPlayers: number;
+  dealer: Dealer;
+  players: Array<Player>;
 }
