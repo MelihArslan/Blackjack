@@ -14,7 +14,7 @@ public class Hand implements Serializable {
     @Column(updatable = false)
     private Long id;
     @OneToMany(cascade = {CascadeType.ALL})
-    private List<Card> cards  = new ArrayList<>();
+    private List<Card> cards = new ArrayList<>();
 
     public Hand() {}
 

@@ -1,20 +1,21 @@
 package nl.meliharslan.ewa.blackjackSB.models;
 
-public class Player {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+public class Player implements Serializable {
     // Declaring variables
+    @Id
+    @Column(nullable = false, updatable = false)
     private String username;
     private String email;
     private String password;
     private int balance;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Hand hand;
 
-    public Player(String username, String email, String password, int balance, Hand hand) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.balance = balance;
-        this.hand = hand;
-    }
+    public Player() {}
 
     // Getters and setters
     public String getUsername() {
@@ -69,6 +70,4 @@ public class Player {
         // Splitting the current hand and returning the new hand
         return null;
     }
-
-
 }
