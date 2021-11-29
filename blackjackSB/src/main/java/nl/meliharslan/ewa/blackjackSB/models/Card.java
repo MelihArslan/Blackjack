@@ -1,31 +1,37 @@
 package nl.meliharslan.ewa.blackjackSB.models;
 
-public class Card {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "card")
+public class Card implements Serializable {
     // Declaring variable
-    private String rank;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    private Long cardId;
+    private String cardRank;
     private String suit;
 
-    public Card(String rank, String suit) {
-        this.rank = rank;
-        this.suit = suit;
-    }
+    public Card() {}
 
-    // Getters and setters
-    public String getRank() {
-        return rank;
+    public Long getCardId() {
+        return cardId;
     }
-    public void setRank(String rank) {
-        this.rank = rank;
+    public void setCardId(Long cardId) {
+        this.cardId = cardId;
+    }
+    public String getCardRank() {
+        return cardRank;
+    }
+    public void setCardRank(String cardRank) {
+        this.cardRank = cardRank;
     }
     public String getSuit() {
         return suit;
     }
     public void setSuit(String suit) {
         this.suit = suit;
-    }
-
-    public int cardValue() {
-        // Return the value of the card
-        return 0;
     }
 }

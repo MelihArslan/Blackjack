@@ -3,13 +3,32 @@
     <div class="align-self-center m-3">
       <h1>Blackjack</h1>
     </div>
+
     <div class="align-self-center">
-      <h1>Dealer</h1>
-      <p>Cards should be show here</p>
+      <h1>Dealer {{ table.dealer.name}}</h1>
     </div>
-    <div class="align-self-center">
-      <h1>Player</h1>
-      <p>Cards should be show here</p>
+    <div class="d-flex flex-row align-self-center">
+      <div *ngFor="let card of table.dealer.hand.cards" class="p-1">
+        <img
+          src="/assets/card-view/{{ card.suit }}_{{card.cardRank}}.png"
+          alt="{{ card.suit }}_{{card.cardRank}}"
+          class="img-fluid">
+      </div>
+    </div>
+
+    <div class="d-flex flex-row align-self-center">
+      <div *ngFor="let player of table.players" class="align-self-center p-3">
+        <h1>Player {{ player.username }}</h1>
+        <div class="d-flex flex-row align-self-center">
+          <div *ngFor="let card of player.hand.cards" class="p-1">
+            <img
+              src="/assets/card-view/{{ card.suit }}_{{card.cardRank}}.png"
+              alt="{{ card.suit }}_{{card.cardRank}}"
+              class="img-fluid">
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 

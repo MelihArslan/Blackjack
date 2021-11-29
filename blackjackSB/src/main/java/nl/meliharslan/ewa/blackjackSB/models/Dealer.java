@@ -1,14 +1,19 @@
 package nl.meliharslan.ewa.blackjackSB.models;
 
-public class Dealer {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "dealer")
+public class Dealer implements Serializable {
     // Declaring variables
+    @Id
+    @Column(nullable = false, updatable = false)
     private String name;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Hand hand;
 
-    public Dealer(String name, Hand hand) {
-        this.name = name;
-        this.hand = hand;
-    }
+    public Dealer() {}
 
     // Getters and setters
     public String getName() {
