@@ -12,8 +12,12 @@ public class Dealer implements Serializable {
     private String name;
     @OneToOne(cascade = {CascadeType.ALL})
     private Hand hand;
-
-    public Dealer() {}
+    private Deck deck;
+    private boolean mustDraw = true;
+    public Dealer() {
+        this.deck = new Deck();
+        this.hand = new Hand();
+    }
 
     // Getters and setters
     public String getName() {
@@ -25,6 +29,18 @@ public class Dealer implements Serializable {
     public Hand getHand() {
         return hand;
     }
+
+    public Card draw(){
+        return null;
+    }
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
     public void setHand(Hand hand) {
         this.hand = hand;
     }
@@ -36,4 +52,5 @@ public class Dealer implements Serializable {
         // Getting a new card and returning the current hand
         return null;
     }
+
 }

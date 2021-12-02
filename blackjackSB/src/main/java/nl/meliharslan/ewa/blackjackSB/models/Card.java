@@ -1,5 +1,7 @@
 package nl.meliharslan.ewa.blackjackSB.models;
 
+import nl.meliharslan.ewa.blackjackSB.models.card.CardType;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -15,6 +17,9 @@ public class Card implements Serializable {
     private String suit;
 
     public Card() {}
+
+    public Card(CardType c) {
+    }
 
     public Long getCardId() {
         return cardId;

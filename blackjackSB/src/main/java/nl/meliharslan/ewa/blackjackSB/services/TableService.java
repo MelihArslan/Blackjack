@@ -1,7 +1,7 @@
 package nl.meliharslan.ewa.blackjackSB.services;
+
 import nl.meliharslan.ewa.blackjackSB.models.GameTable;
 import nl.meliharslan.ewa.blackjackSB.repositories.TableRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +34,6 @@ public class TableService {
     public GameTable updateTable(Long id, int totalPlayers) {
         GameTable table = tableRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException("Could not find table with following ID: " + id));
-
         table.setTotalPlayers(totalPlayers);
         return table;
     }
