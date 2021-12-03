@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface DeckRepository extends JpaRepository<Deck, Long> {
 
+    static List<Deck> findAllDeck(){return findAllDeck();};
 }

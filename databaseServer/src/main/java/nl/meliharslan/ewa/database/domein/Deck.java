@@ -12,7 +12,9 @@ public class Deck implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO) // pass the strategy
     @Column(nullable = false, updatable = false) // column aanpassen of regels opstellen
     private Long id;
+    @OneToMany
     private Set<Player> playerSet = new LinkedHashSet<>();
+    @OneToMany
     private Set<Card> cards = new HashSet<>();
 
 }

@@ -5,9 +5,11 @@ import java.io.Serializable;
 
 @Entity
 public class Hand implements Serializable {
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // pass the strategy
     @Column(nullable = false, updatable = false) // column aanpassen of regels opstellen
     private Long id;
+    @OneToOne
     private Player player;
     private int betAmount;
     private boolean finished = false;

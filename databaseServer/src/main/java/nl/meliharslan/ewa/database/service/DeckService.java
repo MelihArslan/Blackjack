@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class DeckService {
-    private final DeckRepository deckRepository;
-
-    @Autowired
-    public DeckService(DeckRepository deckRepository) {
-        this.deckRepository = deckRepository;
-    }
-
-    //add
-    public Deck addDeck(Deck deck){
-        return deckRepository.save(deck);
-    }
-    public List<Deck> findAllDeck(){
-        return DeckRepository;
-    }
-}
+//@Service
+//public class DeckService {
+//    private final DeckRepository deckRepository;
+//
+//    @Autowired
+//    public DeckService(DeckRepository deckRepository) {
+//        this.deckRepository = deckRepository;
+//    }
+//
+//    //add
+//    public Deck addDeck(Deck deck){
+//        return deckRepository.save(deck);
+//    }
+//    public List<Deck> findAllDeck(){
+//        return DeckRepository;
+//    }
+//}

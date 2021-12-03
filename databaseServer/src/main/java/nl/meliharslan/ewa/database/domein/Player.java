@@ -10,6 +10,7 @@ public class Player implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
+    @OneToOne
     private Deck deck;
     private int cash = 200;
     private boolean isDealer = false;
