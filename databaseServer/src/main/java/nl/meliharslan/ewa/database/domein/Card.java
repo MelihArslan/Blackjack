@@ -1,31 +1,45 @@
 package nl.meliharslan.ewa.database.domein;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Card implements Serializable {
+@Table
+@NoArgsConstructor
+public class Card {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "suit")
+    @Enumerated(EnumType.STRING)
     private CardSuit suit;
-    private CardValue cardValue;
-    @OneToOne
+
+    @Column(name = "value")
+    @Enumerated(EnumType.STRING)
+    private CardValue value;
+
+    @ManyToOne
+    @JoinColumn(name = "deck_id")
+    @JsonBackReference
     private Deck deck;
-    @OneToOne
+
+    @ManyToOne
+    @JoinColumn(name = "hand_id", nullable = true)
+    @JsonBackReference
     private Hand hand;
 
-    public Card() {
+    public Card(CardSuit suit, CardValue faceValue) {
+        this.suit = suit;
+        this.value = faceValue;
     }
 
-    public Card(CardSuit suit, CardValue cardValue) {
-        this.suit = suit;
-        this.cardValue = cardValue;
-    }
-
-    public Card(CardSuit suit, CardValue cardValue, Deck deck) {
-        this.suit = suit;
-        this.cardValue = cardValue;
+    public Card(CardSuit suit, CardValue faceValue, Deck deck) {
+        this(suit, faceValue);
         this.deck = deck;
     }
 
@@ -45,12 +59,12 @@ public class Card implements Serializable {
         this.suit = suit;
     }
 
-    public CardValue getCardValue() {
-        return cardValue;
+    public CardValue getValue() {
+        return value;
     }
 
-    public void setCardValue(CardValue cardValue) {
-        this.cardValue = cardValue;
+    public void setValue(CardValue value) {
+        this.value = value;
     }
 
     public Deck getDeck() {
@@ -69,14 +83,15 @@ public class Card implements Serializable {
         this.hand = hand;
     }
 
-    @Override
+    public boolean isAce() {
+        return getValue().getName().equalsIgnoreCase("ACE");
+    }
+
+    public int getCardValue() {
+        return value.getValue();
+    }
+
     public String toString() {
-        return "Card{" +
-                "id=" + id +
-                ", suit=" + suit +
-                ", cardValue=" + cardValue +
-                ", deck=" + deck +
-                ", hand=" + hand +
-                '}';
+        return getSuit().toString() + "/" + getValue().getName() + "/" + getCardValue();
     }
 }
