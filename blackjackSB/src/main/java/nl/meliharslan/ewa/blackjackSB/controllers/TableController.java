@@ -37,7 +37,7 @@ public class TableController {
     }
 
     // Add methode -> Post request methode
-    @PostMapping("/")
+    @PostMapping("/add")
     public ResponseEntity<GameTable> addTable(@RequestBody GameTable gameTable) {
         GameTable gameTable1 = tableService.addTable(gameTable);
         return new ResponseEntity<>(gameTable1, HttpStatus.CREATED);
