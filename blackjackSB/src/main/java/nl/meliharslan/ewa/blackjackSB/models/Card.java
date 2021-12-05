@@ -19,6 +19,9 @@ public class Card implements Serializable {
         this.cardRank = cardRank;
     }
 
+    public Card() {
+    }
+
     public Long getCardId() {
         return cardId;
     }

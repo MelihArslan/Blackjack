@@ -24,6 +24,7 @@ public class PlayerService {
         Player player = this.playerRepository.getById(id);
         List<GameTable> allTables = this.tableRepository.findAll();
         GameTable table = player.joinTable(allTables);
+        this.tableRepository.save(table);
         if (table == null) {
             // TODO Dynamisch een table laten maken en returnen
         }

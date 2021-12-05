@@ -20,8 +20,6 @@ public class GameTable implements Serializable {
     @OneToOne(cascade = {CascadeType.ALL})
     private Deck deck;
 
-
-
     public GameTable() {}
 
     // Getters and setters
@@ -58,6 +56,7 @@ public class GameTable implements Serializable {
     public void setDeck(Deck deck) {
         this.deck = deck;
     }
+
 
     @Override
     public String toString() {

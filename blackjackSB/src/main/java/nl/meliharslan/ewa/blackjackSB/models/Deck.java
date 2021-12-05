@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 
 
 @Entity
@@ -38,15 +39,17 @@ public class Deck implements Serializable {
 
     private void generateCards() {
         int cardsCreated = 0;
-        cards = new HashSet<>();
         for (CardSuit suit : CardSuit.values()) {
             for (CardValue value : CardValue.values()) {
                 if (cardsCreated < CONSTANT.CARD_SIZE) {
-                    cards.add(new Card(suit, value));
+                    this.cards.add(new Card(suit, value));
                     cardsCreated++;
                 }
             }
         }
+    }
+    public void removeCard(Card card) {
+        this.getCards().remove(card);
     }
 
     public Deck shuffle() {

@@ -1,7 +1,7 @@
 package nl.meliharslan.ewa.blackjackSB.models;
 
 public enum CardSuit {
-    PADES("Spades"),
+    SPADES("Spades"),
     CLUBS("Clubs"),
     DIAMONDS("Diamonds"),
     HEARTS("Hearts");
