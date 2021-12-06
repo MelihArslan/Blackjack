@@ -42,7 +42,7 @@ public class GameService {
             tableRepository.save(table);
             return player.getHand();
         }
-        catch (Exception e) {
+        catch (EntityNotFoundException e) {
             // Searching for dealer by id
             Dealer dealer = dealerRepository.getById(playerId);
             // Adding the card to the hand
@@ -55,6 +55,7 @@ public class GameService {
             tableRepository.save(table);
             return dealer.getHand();
         }
+        // Throw UserNotFoundException if no dealer and player found
 
         // Have to check if player is attending to a table
     }

@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path = "/player")
 public class PlayerController {
@@ -28,5 +30,17 @@ public class PlayerController {
     public ResponseEntity<GameTable> joinTable(@PathVariable Long id) {
         GameTable gameTable1 = playerService.joinTable(id);
         return new ResponseEntity<>(gameTable1, HttpStatus.OK);
+    }
+
+    @GetMapping("/balance/{id}")
+    public ResponseEntity<Integer> getBalance(@PathVariable Long id) {
+        int balance = playerService.getBalance(id);
+        return new ResponseEntity<>(balance, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Player>> getPlayerById(@PathVariable("id") Long id) {
+        Optional<Player> player = playerService.findPlayerById(id);
+        return new ResponseEntity<>(player, HttpStatus.OK);
     }
 }

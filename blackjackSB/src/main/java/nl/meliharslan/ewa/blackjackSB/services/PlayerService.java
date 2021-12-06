@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -33,5 +34,17 @@ public class PlayerService {
 
     public Player addPlayer(Player player) {
         return this.playerRepository.save(player);
+    }
+
+    public int getBalance(Long id) {
+        return this.playerRepository.getById(id).getBalance();
+    }
+
+    public Optional<Player> findPlayerById(Long id) {
+        boolean exists = playerRepository.existsById(id);
+        if (!exists) {
+            throw new IllegalStateException("Could not find table with following ID: " + id);
+        }
+        return this.playerRepository.findById(id);
     }
 }

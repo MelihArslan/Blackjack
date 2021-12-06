@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "e0c79fc2-b46c-4b42-9bb5-23a79e455bab",
+		"name": "EWA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add table with dealer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"totalPlayers\": \"0\",\n    \"players\": [],\n    \"deck\": {},\n    \"dealer\": {\n        \"name\": \"Dirk\",\n        \"hand\": {\n            \"cards\": [\n                {\n                    \"cardRank\": \"10\",\n                    \"suit\": \"diamonds\"\n                },\n                {\n                    \"cardRank\": \"ace\",\n                    \"suit\": \"diamonds\"\n                }\n            ]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/table/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"table",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Melih\",\n    \"email\": \"melih@hotmail.com\",\n    \"password\": \"melih123\",\n    \"balance\": \"999999999\",\n    \"hand\": {\n        \"cards\": [\n                {\n                    \"cardRank\": \"10\",\n                    \"suit\": \"diamonds\"\n                },\n                {\n                    \"cardRank\": \"ace\",\n                    \"suit\": \"diamonds\"\n                }\n            ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/player/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join table with player ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/player/join/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player",
+						"join",
+						"1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deal one card to a player in a table",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/game/dealcard/1/56",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game",
+						"dealcard",
+						"1",
+						"56"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tables",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/table/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"table",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

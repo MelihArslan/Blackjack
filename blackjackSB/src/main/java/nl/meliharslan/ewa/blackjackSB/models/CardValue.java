@@ -11,9 +11,9 @@ public enum CardValue {
     NINE("", 9),
     TEN("", 10),
     ACE("ACE", 11),
-    JACK("Jack", 1),
-    QUEEN("Queen", 2),
-    KING("King", 3);
+    JACK("Jack", 10),
+    QUEEN("Queen", 10),
+    KING("King", 10);
 
     private final String name;
     private final int value;

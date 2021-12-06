@@ -23,7 +23,6 @@ public class TableService {
     // Add table
     public GameTable addTable(GameTable gameTable) {
         gameTable.setDeck(new Deck());
-
         // Save table with JPA save method
         return tableRepository.save(gameTable);
     }
