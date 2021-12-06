@@ -41,10 +41,19 @@ public class PlayerService {
     }
 
     public Optional<Player> findPlayerById(Long id) {
-        boolean exists = playerRepository.existsById(id);
-        if (!exists) {
-            throw new IllegalStateException("Could not find table with following ID: " + id);
-        }
+        playerRepository.checkIfExistById(id);
         return this.playerRepository.findById(id);
+    }
+
+    public int bet(Long id, int amount) {
+        this.playerRepository.checkIfExistById(id);
+        Player player = this.playerRepository.getById(id);
+        // Set the bet amount of the player
+        player.setBetAmount(amount);
+        // Remove the bet amount from the balance
+        player.setBalance(player.getBalance() - amount);
+        // Save the player with the new bet amount
+        this.playerRepository.save(player);
+        return player.getBalance();
     }
 }

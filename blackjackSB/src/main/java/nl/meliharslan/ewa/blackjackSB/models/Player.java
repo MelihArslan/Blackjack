@@ -17,6 +17,7 @@ public class Player implements Serializable {
     private int balance;
     @OneToOne(cascade = {CascadeType.ALL})
     private Hand hand;
+    private int betAmount;
 
     public Player() {}
 
@@ -57,6 +58,12 @@ public class Player implements Serializable {
     public void setHand(Hand hand) {
         this.hand = hand;
     }
+    public int getBetAmount() {
+        return betAmount;
+    }
+    public void setBetAmount(int betAmount) {
+        this.betAmount = betAmount;
+    }
 
     // Joining an available table
     public GameTable joinTable(List<GameTable> allTables) {
@@ -68,6 +75,7 @@ public class Player implements Serializable {
         }
         return null;
     }
+
     public void leaveTable() {
         // Leave the current table
     }

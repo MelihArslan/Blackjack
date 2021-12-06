@@ -43,4 +43,10 @@ public class PlayerController {
         Optional<Player> player = playerService.findPlayerById(id);
         return new ResponseEntity<>(player, HttpStatus.OK);
     }
+
+    @PostMapping("/bet/{id}/{amount}")
+    public ResponseEntity<Integer> bet(@PathVariable Long id, @PathVariable int amount) {
+        int balance = playerService.bet(id, amount);
+        return new ResponseEntity<>(balance, HttpStatus.OK);
+    }
 }
