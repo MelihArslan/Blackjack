@@ -1,29 +1,55 @@
 package nl.meliharslan.ewa.blackjackSB.models;
 
-import java.util.ArrayList;
+import nl.meliharslan.ewa.blackjackSB.Config.CONSTANT;
 
-public class Deck {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
+
+
+@Entity
+public class Deck implements Serializable {
     // Declaring variables
-    private ArrayList<Card> cards;
-    private Hand hand;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    private Long id;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private Set<Card> cards = new HashSet<>();
 
-    public Deck(ArrayList<Card> cards, Hand hand) {
-        this.cards = cards;
-        this.hand = hand;
+    public Deck() {
+        generateCards();
     }
 
     // Getters and setters
-    public ArrayList<Card> getCards() {
-        return cards;
+    public Long getId() {
+        return id;
     }
-    public void setCards(ArrayList<Card> cards) {
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Set<Card> getCards() {
+        return this.cards;
+    }
+    public void setCards(Set<Card> cards) {
         this.cards = cards;
     }
-    public Hand getHand() {
-        return hand;
+
+    private void generateCards() {
+        int cardsCreated = 0;
+        for (CardSuit suit : CardSuit.values()) {
+            for (CardValue value : CardValue.values()) {
+                if (cardsCreated < CONSTANT.CARD_SIZE) {
+                    this.cards.add(new Card(suit, value));
+                    cardsCreated++;
+                }
+            }
+        }
     }
-    public void setHand(Hand hand) {
-        this.hand = hand;
+    public void removeCard(Card card) {
+        this.getCards().remove(card);
     }
 
     public Deck shuffle() {

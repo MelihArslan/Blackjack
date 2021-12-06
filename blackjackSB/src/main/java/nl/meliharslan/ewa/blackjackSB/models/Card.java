@@ -11,10 +11,16 @@ public class Card implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long cardId;
-    private String cardRank;
-    private String suit;
+    private CardValue cardRank;
+    private CardSuit suit;
 
-    public Card() {}
+    public Card(CardSuit suit, CardValue cardRank) {
+        this.suit = suit;
+        this.cardRank = cardRank;
+    }
+
+    public Card() {
+    }
 
     public Long getCardId() {
         return cardId;
@@ -22,16 +28,16 @@ public class Card implements Serializable {
     public void setCardId(Long cardId) {
         this.cardId = cardId;
     }
-    public String getCardRank() {
+    public CardValue getCardRank() {
         return cardRank;
     }
-    public void setCardRank(String cardRank) {
+    public void setCardRank(CardValue cardRank) {
         this.cardRank = cardRank;
     }
-    public String getSuit() {
+    public CardSuit getSuit() {
         return suit;
     }
-    public void setSuit(String suit) {
+    public void setSuit(CardSuit suit) {
         this.suit = suit;
     }
 }

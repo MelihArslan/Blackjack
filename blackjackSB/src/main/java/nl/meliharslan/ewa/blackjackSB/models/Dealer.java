@@ -8,7 +8,9 @@ import java.io.Serializable;
 public class Dealer implements Serializable {
     // Declaring variables
     @Id
-    @Column(nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false)
+    private Long id;
     private String name;
     @OneToOne(cascade = {CascadeType.ALL})
     private Hand hand;
@@ -16,6 +18,12 @@ public class Dealer implements Serializable {
     public Dealer() {}
 
     // Getters and setters
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

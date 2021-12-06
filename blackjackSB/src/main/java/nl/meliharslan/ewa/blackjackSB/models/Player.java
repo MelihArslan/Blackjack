@@ -2,12 +2,15 @@ package nl.meliharslan.ewa.blackjackSB.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Player implements Serializable {
     // Declaring variables
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
+    private Long id;
     private String username;
     private String email;
     private String password;
@@ -18,6 +21,12 @@ public class Player implements Serializable {
     public Player() {}
 
     // Getters and setters
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getUsername() {
         return username;
     }
@@ -49,8 +58,15 @@ public class Player implements Serializable {
         this.hand = hand;
     }
 
-    public void joinTable() {
-        // Joining an available table
+    // Joining an available table
+    public GameTable joinTable(List<GameTable> allTables) {
+        for (GameTable table : allTables) {
+            if (table.getPlayers().size() < 6) {
+                table.addPlayer(this);
+                return table;
+            }
+        }
+        return null;
     }
     public void leaveTable() {
         // Leave the current table

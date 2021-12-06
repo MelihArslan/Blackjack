@@ -1,4 +1,5 @@
 package nl.meliharslan.ewa.blackjackSB.services;
+import nl.meliharslan.ewa.blackjackSB.models.Deck;
 import nl.meliharslan.ewa.blackjackSB.models.GameTable;
 import nl.meliharslan.ewa.blackjackSB.repositories.TableRepository;
 
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class TableService {
@@ -20,6 +22,8 @@ public class TableService {
 
     // Add table
     public GameTable addTable(GameTable gameTable) {
+        gameTable.setDeck(new Deck());
+
         // Save table with JPA save method
         return tableRepository.save(gameTable);
     }
@@ -34,7 +38,6 @@ public class TableService {
     public GameTable updateTable(Long id, int totalPlayers) {
         GameTable table = tableRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException("Could not find table with following ID: " + id));
-
         table.setTotalPlayers(totalPlayers);
         return table;
     }

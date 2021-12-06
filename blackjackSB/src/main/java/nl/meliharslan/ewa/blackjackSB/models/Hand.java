@@ -25,11 +25,14 @@ public class Hand implements Serializable {
     public void setCards(List<Card> cards) {
         this.cards = cards;
     }
-
     public Long getId() {
         return id;
     }
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void addCard(Card card) {
+        this.cards.add(card);
     }
 }
