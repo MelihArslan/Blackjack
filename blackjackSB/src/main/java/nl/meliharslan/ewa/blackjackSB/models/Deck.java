@@ -6,14 +6,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Stack;
 
 
 @Entity
 public class Deck implements Serializable {
     // Declaring variables
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
     @OneToMany(cascade = {CascadeType.ALL})
@@ -50,10 +49,5 @@ public class Deck implements Serializable {
     }
     public void removeCard(Card card) {
         this.getCards().remove(card);
-    }
-
-    public Deck shuffle() {
-        // Shuffle the deck and places the cards in a random order. Returns the deck
-        return null;
     }
 }

@@ -2,6 +2,7 @@ package nl.meliharslan.ewa.blackjackSB.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "dealer")
@@ -13,9 +14,12 @@ public class Dealer implements Serializable {
     private Long id;
     private String name;
     @OneToOne(cascade = {CascadeType.ALL})
-    private Hand hand;
+    private Hand hand = new Hand();
 
-    public Dealer() {}
+    public Dealer() {
+        // Have to choose a name dynamically
+        this.name = "Dealer " + this.getId();
+    }
 
     // Getters and setters
     public Long getId() {

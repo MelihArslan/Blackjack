@@ -3,6 +3,7 @@ package nl.meliharslan.ewa.blackjackSB.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -10,13 +11,15 @@ import java.util.List;
 public class Hand implements Serializable {
     // Declaring variable
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private Long id;
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Card> cards = new ArrayList<>();
 
-    public Hand() {}
+    public Hand() {
+        this.cards = Collections.emptyList();
+    }
 
     // Getter and setter
     public List<Card> getCards() {

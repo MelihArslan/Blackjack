@@ -7,6 +7,7 @@ import nl.meliharslan.ewa.blackjackSB.repositories.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,13 +23,14 @@ public class PlayerService {
     }
 
     public GameTable joinTable(Long id) {
+        boolean exists = this.playerRepository.existsById(id);
+        if (!exists) {
+            throw new EntityNotFoundException("Could not find player with following ID: " + id);
+        }
         Player player = this.playerRepository.getById(id);
         List<GameTable> allTables = this.tableRepository.findAll();
         GameTable table = player.joinTable(allTables);
         this.tableRepository.save(table);
-        if (table == null) {
-            // TODO Dynamisch een table laten maken en returnen
-        }
         return table;
     }
 

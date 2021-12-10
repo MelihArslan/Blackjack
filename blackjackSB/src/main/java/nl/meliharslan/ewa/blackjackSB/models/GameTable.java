@@ -9,7 +9,7 @@ import java.util.List;
 public class GameTable implements Serializable {
     // Declaring variables
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
     @OneToOne(cascade = {CascadeType.ALL})
@@ -20,7 +20,12 @@ public class GameTable implements Serializable {
     @OneToOne(cascade = {CascadeType.ALL})
     private Deck deck;
 
-    public GameTable() {}
+    public GameTable() {
+        // Add a dealer dynamically
+        this.dealer = new Dealer();
+        // Add a deck dynamically
+        this.deck = new Deck();
+    }
 
     // Getters and setters
     public Long getId() {

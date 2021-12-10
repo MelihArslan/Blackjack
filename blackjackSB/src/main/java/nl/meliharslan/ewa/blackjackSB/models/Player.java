@@ -67,13 +67,18 @@ public class Player implements Serializable {
 
     // Joining an available table
     public GameTable joinTable(List<GameTable> allTables) {
+        // TODO Stream through all tables and filter the one table who has lover than 6 players out. If none create a table
+
         for (GameTable table : allTables) {
             if (table.getPlayers().size() < 6) {
                 table.addPlayer(this);
                 return table;
             }
         }
-        return null;
+        // If there is no table with less than 6 players, create one and add the player to it
+        GameTable table = new GameTable();
+        table.addPlayer(this);
+        return table;
     }
 
     public void leaveTable() {
